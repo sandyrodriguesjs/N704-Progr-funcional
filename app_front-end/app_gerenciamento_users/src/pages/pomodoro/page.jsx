@@ -60,12 +60,15 @@ function Pomodoro() {
         <>
             <header className="bg-primary py-3">
                 <div className="container d-flex justify-content-between align-items-center">
-                    <h1 className="h3 mb-0">Controle seu Tempo</h1>
+                    <Link className="navbar-brand" to="/pomodoro">
+                        <i className="fa-sharp fa-solid fa-clock ml-2 mx-2" style={{ color: '#74C0FC' }}></i>
+                        Pomodoro
+                    </Link>
                     <nav>
                         <Link to="/gerenciamento_users">
-                            <button className="btn btn-link text-light">Gerenciar usuários</button>
+                            <button className="btn text-light fw-bold">Gerenciar usuários</button>
                         </Link>
-                        <button onClick={logout} className="btn btn-link text-light">
+                        <button onClick={logout} className="btn fw-bold text-light">
                             Sair
                         </button>
                     </nav>
@@ -75,13 +78,13 @@ function Pomodoro() {
             <div className="container mt-5">
                
                 <div className="d-flex justify-content-center mb-3">
-                    <button onClick={() => resetTimer(25 * 60)} className="btn btn-primary mx-1">
+                    <button onClick={() => resetTimer(25 * 60)} className="btn btn-primary rounded-pill mx-1">
                         Pomodoro
                     </button>
-                    <button onClick={() => resetTimer(5 * 60)} className="btn btn-primary mx-1">
+                    <button onClick={() => resetTimer(5 * 60)} className="btn btn-primary rounded-pill mx-1">
                         Pausa Curta
                     </button>
-                    <button onClick={() => resetTimer(15 * 60)} className="btn btn-primary mx-1">
+                    <button onClick={() => resetTimer(15 * 60)} className="btn btn-primary rounded-pill mx-1">
                         Pausa Longa
                     </button>
                 </div>
@@ -92,7 +95,7 @@ function Pomodoro() {
                 </div>
 
                 
-                <button onClick={startTimer} className="btn btn-primary btn-lg mt-3">
+                <button onClick={startTimer} className="btn btn-primary btn-lg rounded-pill mt-3">
                     {isRunning ? 'PAUSAR' : 'INICIAR'}
                 </button>
             </div>

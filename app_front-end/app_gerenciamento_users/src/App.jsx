@@ -13,7 +13,7 @@ function App() {
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container">
                     <Link className="navbar-brand" to="/">
-                        <i className="fa-sharp fa-solid fa-clock ml-2" style={{ color: '#74C0FC' }}></i>
+                        <i className="fa-sharp fa-solid fa-clock ml-2 mx-2" style={{ color: '#74C0FC' }}></i>
                         Pomodoro
                     </Link>
                     <button
@@ -30,17 +30,17 @@ function App() {
                     <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link text-warning" to="/login">
+                                <Link className="nav-link fw-bold text-warning" to="/login">
                                     Entrar
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-warning" to="/register">
+                                <Link className="nav-link fw-bold text-warning" to="/register">
                                     Cadastrar
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-warning" to="/about">
+                                <Link className="nav-link fw-bold text-warning" to="/about">
                                     Sobre
                                 </Link>
                             </li>
@@ -62,7 +62,7 @@ function App() {
                                 Acesse nossa página e descubra como usar intervalos inteligentes para alcançar suas metas e transformar seu dia a dia. Concentre-se no que realmente importa e
                                 comece a ver resultados!
                             </p>
-                            <Link to="/register" className="btn btn-primary">Cadastre-se</Link>
+                            <Link to="/register" className="btn rounded-pill btn-primary">Cadastre-se</Link>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ function App() {
                             <h2 className="text-primary mb-4">A ciência por trás da Técnica Pomodoro</h2>
                             <p className="text-secondary mb-3">
                                 O <a href="https://www.cnnbrasil.com.br/saude/estudo-mostra-como-nao-ter-atencao-desviada-das-tarefas-e-manter-o-foco/"
-                                    className="text-decoration-none text-primary" target="_blank">intervalo de atenção</a>
+                                    className="text-decoration-none text-primary" target="_blank"> intervalo de atenção </a>
                                 é a capacidade de nos concentrarmos em uma única tarefa; quanto maior nossa concentração, mais fácil será para nós fazê-lo. Estudos estimam que esse intervalo dura aproximadamente 20 minutos.
                             </p>
                         </div>

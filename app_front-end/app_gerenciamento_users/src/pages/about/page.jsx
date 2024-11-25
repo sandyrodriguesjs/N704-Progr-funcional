@@ -18,7 +18,7 @@ function About() {
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                 <div className="container">
                     <Link className="navbar-brand d-flex align-items-center" to="/">
-                        <i className="fa-sharp fa-solid fa-clock ml-2" style={{color: "#74C0FC"}}></i>
+                        <i className="fa-sharp fa-solid fa-clock ml-2 mx-2" style={{color: "#74C0FC"}}></i>
                         <span className="ml-2">Pomodoro</span>
                     </Link>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,17 +27,17 @@ function About() {
                     <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
                         <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <Link className="nav-link text-warning" to="/login">
+                                <Link className="nav-link fw-bold text-warning" to="/login">
                                     Entrar
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-warning" to="/register">
+                                <Link className="nav-link fw-bold text-warning" to="/register">
                                     Cadastrar
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-warning" to="/about">
+                                <Link className="nav-link fw-bold text-warning" to="/about">
                                     Sobre
                                 </Link>
                             </li>
@@ -50,11 +50,11 @@ function About() {
                 <div className="container bg-light p-4 rounded shadow">
                     <h2 className="text-primary mb-4">Sobre</h2>
                     <p className="text-secondary">
-                        Este trabalho foi desenvolvido para a disciplina de <strong>Desenvolvimento de Plataformas Web</strong>
-                        da <strong>Universidade de Fortaleza</strong>, pelos membros da equipe:
+                        Este trabalho foi desenvolvido para a disciplina de <strong>Desenvolvimento de Plataformas Web </strong>
+                        da <strong> Universidade de Fortaleza</strong>, pelos membros da equipe:
                     </p>
                     <ul className="list-unstyled text-secondary">
-                        <li>Antônio Mikael Vasconcelos Aguiar</li>
+                        <li>Antonio Mikael Vasconcelos Aguiar</li>
                         <li>Sandy Rodrigues do Nascimento</li>
                         <li>Vitória de Oliveira Almeida</li>
                     </ul>

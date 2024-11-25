@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import welcome from '../../assets/welcome.svg';
 import api from '../../services/api';
@@ -8,13 +8,10 @@ import api from '../../services/api';
 function Login() {
     useEffect(() => {
      
-        document.body.classList.add('bg-light', 'd-flex', 'align-items-center', 'justify-content-center');
-        document.body.style.height = '100vh';
+        document.body.classList.add('bg-light');
         
-       
         return () => {
-            document.body.classList.remove('bg-light', 'd-flex', 'align-items-center', 'justify-content-center');
-            document.body.style = '';
+            document.body.classList.remove('bg-light');
         };
     }, []);
 
@@ -45,7 +42,49 @@ function Login() {
 
     return (
         <>
-            <div className="container">
+            <div>
+                
+            </div>
+             <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+                <div className="container">
+                    <Link className="navbar-brand" to="/">
+                        <i className="fa-sharp fa-solid fa-clock ml-2 mx-2" style={{ color: '#74C0FC' }}></i>
+                        Pomodoro
+                    </Link>
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                        <ul className="navbar-nav ml-auto">
+                            <li className="nav-item">
+                                <Link className="nav-link fw-bold text-warning" to="/login">
+                                    Entrar
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link fw-bold text-warning" to="/register">
+                                    Cadastrar
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link fw-bold text-warning" to="/about">
+                                    Sobre
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            
+            <section className="container vh-100 d-flex align-items-center justify-content-center">
                 <div className="card shadow-lg mx-auto" style={{"maxWidth": 900}}>
                     <div className="row no-gutters">
 
@@ -61,12 +100,12 @@ function Login() {
                                 <input type="email" name="email" className="form-control mb-3" placeholder="E-mail" ref={inputEmail} />
                                 <input type="password" name="password" className="form-control mb-3" placeholder="Senha" ref={inputPassword} />
                                 
-                                <button type="button" onClick={ login } className="btn btn-primary rounded w-50">Entrar</button>
+                                <button type="button" onClick={ login } className="btn btn-primary rounded-pill w-50">Entrar</button>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 }

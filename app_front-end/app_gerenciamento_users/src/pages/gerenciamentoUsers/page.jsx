@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import api from '../../services/api';
 
@@ -42,14 +43,14 @@ function GerenciamentoUsers() {
                 password: editUser.password,
             });
     
-            // Atualizar a lista de usuários com os dados editados
+            
             setUsers(users.map(user =>
                 user._id === editUser._id ? editUser : user
             ));
     
             setEditUser(null);
         } catch (error) {
-            console.error("Erro ao atualizar usuário:", error.response?.data || error.message);
+            console.error("Erro ao atualizar usuário:");
         }
     }
 
@@ -62,10 +63,13 @@ function GerenciamentoUsers() {
         <>
             <header className="bg-primary py-3">
                 <div className="container d-flex justify-content-between align-items-center">
-                    <h1 className="h3 mb-0">Controle seu Tempo</h1>
+                    <Link className="navbar-brand" to="/pomodoro">
+                        <i className="fa-sharp fa-solid fa-clock ml-2 mx-2" style={{ color: '#74C0FC' }}></i>
+                        Pomodoro
+                    </Link>
                     <nav>
-                        <button className="btn btn-link text-light">Gerenciar usuários</button>
-                        <button onClick={ logout } className="btn btn-link text-light">Sair</button>
+                        <button className="btn fw-bold text-light">Gerenciar usuários</button>
+                        <button onClick={ logout } className="btn fw-bold text-light">Sair</button>
                     </nav>
                 </div>
             </header>
@@ -89,9 +93,9 @@ function GerenciamentoUsers() {
                                     <td>{user.email}</td>
                                     <td>
                                         <button onClick={() => setEditUser(user)}
-                                            className="btn btn-sm btn-warning mx-1">Editar</button>
+                                            className="btn btn-sm btn-warning mx-1 rounded-pill">Editar</button>
                                         <button onClick={() => deleteUser(user._id)}
-                                            className="btn btn-sm btn-danger">Excluir</button>
+                                            className="btn btn-sm btn-danger rounded-pill">Excluir</button>
                                     </td>
                                 </tr>
                             ))
@@ -120,8 +124,8 @@ function GerenciamentoUsers() {
                             </div>
                             <div className="modal-body">
                                 <form>
-                                    <div className="mb-3">
-                                        <label className="form-label">Nome</label>
+                                    <div className="mb-3 font-bold text-start">
+                                        <label className="form-label text-dark fw-bold">Nome:</label>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -131,8 +135,8 @@ function GerenciamentoUsers() {
                                             }
                                         />
                                     </div>
-                                    <div className="mb-3">
-                                        <label className="form-label">E-mail</label>
+                                    <div className="mb-3  text-start">
+                                        <label className="form-label text-dark fw-bold">E-mail:</label>
                                         <input
                                             type="email"
                                             className="form-control"
@@ -147,14 +151,14 @@ function GerenciamentoUsers() {
                             <div className="modal-footer">
                                 <button
                                     type="button"
-                                    className="btn btn-secondary"
+                                    className="btn btn-secondary rounded-pill"
                                     onClick={() => setEditUser(null)} 
                                 >
                                     Cancelar
                                 </button>
                                 <button
                                     type="button"
-                                    className="btn btn-primary"
+                                    className="btn btn-primary rounded-pill"
                                     onClick={updateUser}
                                 >
                                     Salvar
