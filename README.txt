@@ -60,13 +60,13 @@ Antes de começar, você precisa ter instalados:
 
 5.## Sobre os Desenvolvedores
 
-**Nome:** Antonio Mikael  
+**Nome:** Antonio Mikael  - 2326335
 **Email:** [mkpro10@alu.ufc.br](mailto:mkpro10@alu.ufc.br)
 
-**Nome:** Sandy Rodrigues 
+**Nome:** Sandy Rodrigues - 2326334 
 **Email:** [sandy.nic@gmail.com](mailto:sandy.nic@gmail.com)
 
-**Nome:** Vitória Oliveira 
+**Nome:** Vitória Oliveira - 2325332
 **Email:** [vitoriaoliver@gmail.com](mailto:vitoriaoliver@gmail.com)
 
 
