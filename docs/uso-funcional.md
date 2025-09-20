@@ -1,11 +1,33 @@
 
 ---
 
+# Utilização de Inteligência Artificial (Chatbot)
+
+Para a elaboração deste documento e para a refatoração do código-fonte, foi utilizado o auxílio do chatbot Gemini (Google AI). O processo de interação ocorreu da seguinte forma:
+
+1.  **Análise Inicial:** O código-fonte original do componente `page.jsx` foi submetido ao chatbot com a pergunta sobre a viabilidade de aplicar os conceitos de programação funcional exigidos (função lambda, list comprehension, closure e função de alta ordem).
+
+2.  **Primeira Resposta e Sugestão:** O chatbot confirmou que a implementação era viável, indicando que três dos quatro conceitos já estavam presentes de forma implícita no código. Além disso, sugeriu uma maneira de implementar o conceito ausente (list comprehension) de forma idiomática no contexto do React.
+
+3.  **Solicitação de Refatoração e Documentação:** Foi solicitado ao chatbot que refatorasse uma função específica (`startTimer`) para tornar os conceitos mais explícitos e, em seguida, que documentasse detalhadamente cada alteração, explicando onde cada conceito foi aplicado no código final.
+
+4.  **Refinamento da Documentação:** A documentação gerada foi refinada em etapas posteriores, solicitando a remoção das definições teóricas dos conceitos e, por fim, a formatação do conteúdo para o padrão Markdown.
+
+O chatbot atuou como uma ferramenta de assistência para análise de código, sugestão de refatoração e geração de documentação técnica.
+
+---
+
+## Resposta Final do Chatbot (Utilizada no Documento)
+
+A seguir, está reproduzida a resposta final consolidada e formatada que foi gerada pelo chatbot e utilizada como base para esta seção do documento.
+
+---
+
 # Documento de Requisitos: Utilização de Conceitos de Programação Funcional
 **Projeto:** Componente Pomodoro - `page.jsx`
 
 ## Objetivo
-Este documento detalha a implementação dos conceitos de Programação Funcional exigidos, indicando onde cada construção foi utilizada no código-fonte final do componente Pomodoro (`page.jsx`).
+Este documento detalha a implementação dos conceitos de Programação Funcional exigidos, indicando onde cada construção foi utilizada no código-fonte final.
 
 ---
 
@@ -180,4 +202,3 @@ const timerOptions = [
     ))}
 </div>
 ```
----
