@@ -1,7 +1,7 @@
 const {MongoClient, ObjectId} = require("mongodb");
 async function connect(){
   if(global.db) return global.db;
-    const conn = await MongoClient.connect("mongodb+srv://mikaelantonio398:mikaelan100@cluster0.idpsx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+    const conn = await MongoClient.connect("mongodb+srv://mikael:mikael123@cluster0.gvgsp.mongodb.net/");
   if(!conn) return new Error("Can't connect");
     global.db = await conn.db("Trabalho_Desenvolvimento_Web");
   return global.db;
