@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 
 function Pomodoro() {
-    const [time, setTime] = useState(25 * 60); 
+    const [time, setTime] = useState(25 * 60);
     const [isRunning, setIsRunning] = useState(false);
     const [intervalId, setIntervalId] = useState(null);
 
@@ -26,17 +26,36 @@ function Pomodoro() {
             setIsRunning(false);
             setIntervalId(null);
         } else {
-            const id = setInterval(() => {
+            // Conceito: Função de Alta Ordem (Higher-Order Function)
+            // A função 'iniciarContador' é uma HOF porque aceita uma função ('tickLogic') como argumento.
+            const iniciarContador = (tickLogic, delay) => {
+                const newIntervalId = setInterval(tickLogic, delay);
+                return newIntervalId;
+            };
+
+            // Esta variável 'id' será acessada pela closure abaixo.
+            let id;
+
+            // Conceito: Função Lambda (Arrow Function) e Closure
+            // 'tick' é uma Função Lambda.
+            // 'tick' também é uma Closure, pois "fecha" e captura a variável 'id' 
+            // do escopo externo (da função startTimer) para usá-la posteriormente.
+            const tick = () => {
                 setTime((prevTime) => {
                     if (prevTime > 0) {
                         return prevTime - 1;
                     } else {
-                        clearInterval(id);
+                        clearInterval(id); // Acessando 'id' do escopo pai (Closure)
                         alert('Tempo esgotado!');
+                        setIsRunning(false); // Para o botão de pausar
                         return 0;
                     }
                 });
-            }, 1000);
+            };
+
+            // Usando nossa Função de Alta Ordem para iniciar o contador
+            id = iniciarContador(tick, 1000);
+
             setIntervalId(id);
             setIsRunning(true);
         }
@@ -55,6 +74,13 @@ function Pomodoro() {
         localStorage.removeItem('token');
         window.location.href = '/login';
     };
+
+    // Array de dados
+    const timerOptions = [
+        { label: 'Pomodoro', time: 25 * 60 },
+        { label: 'Pausa Curta', time: 5 * 60 },
+        { label: 'Pausa Longa', time: 15 * 60 }
+    ];
 
     return (
         <>
@@ -76,25 +102,26 @@ function Pomodoro() {
             </header>
 
             <div className="container mt-5">
-               
+
                 <div className="d-flex justify-content-center mb-3">
-                    <button onClick={() => resetTimer(25 * 60)} className="btn btn-primary rounded-pill mx-1">
-                        Pomodoro
-                    </button>
-                    <button onClick={() => resetTimer(5 * 60)} className="btn btn-primary rounded-pill mx-1">
-                        Pausa Curta
-                    </button>
-                    <button onClick={() => resetTimer(15 * 60)} className="btn btn-primary rounded-pill mx-1">
-                        Pausa Longa
-                    </button>
+                    {/* Usando .map() como List Comprehension para criar botões */}
+                    {timerOptions.map(option => (
+                        <button
+                            key={option.label}
+                            onClick={() => resetTimer(option.time)}
+                            className="btn btn-primary rounded-pill mx-1"
+                        >
+                            {option.label}
+                        </button>
+                    ))}
                 </div>
 
-              
+
                 <div id="display-temporizador" className="display-1 font-weight-bold">
                     {formatTime(time)}
                 </div>
 
-                
+
                 <button onClick={startTimer} className="btn btn-primary btn-lg rounded-pill mt-3">
                     {isRunning ? 'PAUSAR' : 'INICIAR'}
                 </button>
