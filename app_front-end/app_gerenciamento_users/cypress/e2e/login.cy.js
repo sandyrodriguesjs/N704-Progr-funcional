@@ -1,4 +1,23 @@
 describe("Login", () => {
+  before(() => {
+    // Remove o usuário caso já exista
+    cy.request({
+      method: "POST",
+      url: "http://localhost:3000/login",
+      body: { email: "renato@example.com", password: "123456" },
+      failOnStatusCode: false
+    }).then((resp) => {
+      // Se o usuário não existe, faz o cadastro
+      if (resp.status === 404) {
+        cy.request("POST", "http://localhost:3000/register", {
+          name: "Renato",
+          email: "renato@example.com",
+          password: "123456"
+        });
+      }
+    });
+  });
+
   it("deve permitir login com credenciais válidas", () => {
     cy.visit("/login");
 
