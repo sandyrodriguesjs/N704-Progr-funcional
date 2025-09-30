@@ -86,7 +86,7 @@ function Pomodoro() {
     <>
       <header className="bg-primary py-3">
         <div className="container d-flex justify-content-between align-items-center">
-          <Link className="navbar-brand" to="/pomodoro">
+          <Link className="navbar-brand" to="/pomodoro" data-cy="nav-home">
             <i
               className="fa-sharp fa-solid fa-clock ml-2 mx-2"
               style={{ color: "#74C0FC" }}
@@ -94,12 +94,16 @@ function Pomodoro() {
             Pomodoro
           </Link>
           <nav>
-            <Link to="/gerenciamento_users">
+            <Link to="/gerenciamento_users" data-cy="nav-users">
               <button className="btn text-light fw-bold">
                 Gerenciar usuários
               </button>
             </Link>
-            <button onClick={logout} className="btn fw-bold text-light">
+            <button
+              onClick={logout}
+              className="btn fw-bold text-light"
+              data-cy="btn-logout"
+            >
               Sair
             </button>
           </nav>
@@ -114,19 +118,25 @@ function Pomodoro() {
               key={option.label}
               onClick={() => resetTimer(option.time)}
               className="btn btn-primary rounded-pill mx-1"
+              data-cy={`btn-${option.label.replace(" ", "-").toLowerCase()}`}
             >
               {option.label}
             </button>
           ))}
         </div>
 
-        <div id="display-temporizador" className="display-1 font-weight-bold">
+        <div
+          id="display-temporizador"
+          data-cy="timer-display"
+          className="display-1 font-weight-bold"
+        >
           {formatTime(time)}
         </div>
 
         <button
           onClick={startTimer}
           className="btn btn-primary btn-lg rounded-pill mt-3"
+          data-cy="btn-start-pause"
         >
           {isRunning ? "PAUSAR" : "INICIAR"}
         </button>
