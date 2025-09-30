@@ -31,4 +31,21 @@ Em outro terminal, ainda no diretório `app_gerenciamento_users`:
 ```
 npm run test:run
 ```
+## 5. Erro na execução do Teste
 
+Remova o cache do Cypress
+```
+rmdir /s /q "%LOCALAPPDATA%\Cypress\Cache"
+```
+
+Reinstale o Cypress No terminal, dentro da pasta do seu projeto, execute:
+```
+npm install cypress --save-dev
+npx cypress install
+```
+
+
+Tente abrir novamente
+```
+npx cypress open
+```
